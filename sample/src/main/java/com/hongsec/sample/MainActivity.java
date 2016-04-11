@@ -4,12 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.hongsec.lib.listview.Common_Adapter;
-import com.hongsec.lib.listview.Common_Viewholder;
+import com.hongsec.lib.CommonViewHolder;
+import com.hongsec.lib.listview.CommonAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,17 +30,12 @@ public class MainActivity extends AppCompatActivity {
 
         listview =(ListView) findViewById(R.id.listview);
 
-        listview.setAdapter(new Common_Adapter<String>(this,R.layout.item_listview,mDatas) {
+        listview.setAdapter(new CommonAdapter<String>(this,R.layout.item_listview,mDatas) {
             @Override
-            public void getDefaultView(Common_Viewholder holder, int position, String data) {
+            public void convert(CommonViewHolder holder, String s) {
 
-                holder.setText(R.id.text_title,data);
+                holder.setText(R.id.text_title,s);
 
-            }
-
-            @Override
-            public View getOtherView(View convertView, int position, ViewGroup parent) {
-                return null;
             }
         });
 
