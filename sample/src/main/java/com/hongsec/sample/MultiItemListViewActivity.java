@@ -6,10 +6,10 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
-import com.hongsec.lib.CommonViewHolder;
-import com.hongsec.lib.listview.MultiItemCommonAdapter;
-import com.hongsec.lib.listview.MultiItemTypeSupport;
 import com.hongsec.sample.bean.ChatMessage;
+import com.zhy.base.adapter.ViewHolder;
+import com.zhy.base.adapter.abslistview.MultiItemCommonAdapter;
+import com.zhy.base.adapter.abslistview.MultiItemTypeSupport;
 
 import java.util.List;
 
@@ -69,7 +69,7 @@ public class MultiItemListViewActivity extends AppCompatActivity {
         }
 
         @Override
-        public void convert(CommonViewHolder holder, ChatMessage chatMessage) {
+        public void convert(ViewHolder holder, ChatMessage chatMessage) {
 
             switch (holder.getLayoutId()) {
 

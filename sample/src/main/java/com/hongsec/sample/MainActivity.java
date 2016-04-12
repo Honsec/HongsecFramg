@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.hongsec.lib.CommonViewHolder;
-import com.hongsec.lib.listview.CommonAdapter;
+import com.zhy.base.adapter.ViewHolder;
+import com.zhy.base.adapter.abslistview.CommonAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         listview.setAdapter(new CommonAdapter<String>(this,R.layout.item_listview,mDatas) {
             @Override
-            public void convert(CommonViewHolder holder, String s) {
+            public void convert(ViewHolder holder, String s) {
 
                 holder.setText(R.id.text_title,s);
 

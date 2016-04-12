@@ -28,7 +28,7 @@ public abstract class  CommonAdapter<T> extends RecyclerView.Adapter<CommonViewH
     private OnItemClickListener mOnItemClickListener;
 
 
-    public void setmOnItemClickListener(OnItemClickListener mOnItemClickListener) {
+    public void setOnItemClickListener(OnItemClickListener mOnItemClickListener) {
         this.mOnItemClickListener = mOnItemClickListener;
     }
 
@@ -50,7 +50,7 @@ public abstract class  CommonAdapter<T> extends RecyclerView.Adapter<CommonViewH
     @Override
     public CommonViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        CommonViewHolder commonViewHolder = CommonViewHolder.get(mContext, null, parent, mLayoutId, -01);
+        CommonViewHolder commonViewHolder = CommonViewHolder.get(mContext, null, parent, mLayoutId, -1);
         setListener(parent, commonViewHolder, viewType);
 
         return commonViewHolder;
