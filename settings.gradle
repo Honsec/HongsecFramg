@@ -1,1 +1,1 @@
-include ':sample', ':lib'
+include ':sample', ':common_list_adapter', ':xrecyclerview', ':projectframe'

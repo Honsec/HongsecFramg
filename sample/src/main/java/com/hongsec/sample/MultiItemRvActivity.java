@@ -97,7 +97,7 @@ public class MultiItemRvActivity extends AppCompatActivity{
         }
 
         @Override
-        public void convert(ViewHolder viewHolder, ChatMessage chatMessage) {
+        public void convert(ViewHolder viewHolder, ChatMessage chatMessage){
 
             switch (viewHolder.getLayoutId()){
 
