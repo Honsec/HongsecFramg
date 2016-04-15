@@ -1,6 +1,7 @@
 package com.hongsec.projectframe.utils;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
@@ -21,6 +22,24 @@ import android.view.inputmethod.InputMethodManager;
  * Created by Hongsec on 2016-04-14.
  */
 public class SystemUtils {
+
+
+    /**
+     * 进程名
+     * @param context
+     * @return
+     */
+    public static String getCurProcessName(Context context) {
+        int pid = android.os.Process.myPid();
+        ActivityManager mActivityManager = (ActivityManager) context
+                .getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningAppProcessInfo appProcess : mActivityManager.getRunningAppProcesses()) {
+            if (appProcess.pid == pid) {
+                return appProcess.processName;
+            }
+        }
+        return "";
+    }
 
 
     /**

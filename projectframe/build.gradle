@@ -4,17 +4,55 @@ android {
     compileSdkVersion 23
     buildToolsVersion "24.0.0 rc2"
 
+
+    dexOptions {  /*For resolve outof memory issue*/
+        javaMaxHeapSize "4g"
+    }
+
     defaultConfig {
         applicationId "com.hongsec.projectframe"
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true  //for 64K issue    http://stackoverflow.com/questions/27377080/after-update-of-as-to-1-0-getting-method-id-not-in-0-0xffff-65536-error-i
+        //http://www.cnblogs.com/yeahgis/p/4660873.html
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        original {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "qzz"]
+            /*
+            *  <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" >
+        </meta-data>
+            * */
+        }
+
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                //-${releaseTime()}
+                //APK 이름 변경
+                if (outputFile.name.contains('release')) {
+                    def fileName = "qzz_release_${variant.productFlavors[0].name}-${defaultConfig.versionName}-${defaultConfig.versionCode}.apk"
+                    output.outputFile = new File(outputFile.parent, fileName)
+                } else {
+                    def fileName = "qzz_debug_${variant.productFlavors[0].name}-${defaultConfig.versionName}-${defaultConfig.versionCode}.apk"
+                    output.outputFile = new File(outputFile.parent, fileName)
+                }
+
+            }
         }
     }
 }
@@ -23,4 +61,12 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'commons-httpclient:commons-httpclient:20020423'
+    compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
+    compile 'de.greenrobot:eventbus:2.4.0'
+    compile 'com.google.code.gson:gson:2.5'
+    compile 'com.android.support:support-v4:23.1.1'
 }

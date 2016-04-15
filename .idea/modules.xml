@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyApplication2.iml" filepath="$PROJECT_DIR$/MyApplication2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common_list_adapter/common_list_adapter.iml" filepath="$PROJECT_DIR$/common_list_adapter/common_list_adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/common_list_adapter/lib.iml" filepath="$PROJECT_DIR$/common_list_adapter/lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/projectframe/projectframe.iml" filepath="$PROJECT_DIR$/projectframe/projectframe.iml" />
       <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" />
