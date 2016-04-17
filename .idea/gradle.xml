@@ -10,7 +10,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/common_list_adapter" />
             <option value="$PROJECT_DIR$/projectframe" />
-            <option value="$PROJECT_DIR$/sample" />
+            <option value="$PROJECT_DIR$/recycleviewdemo" />
+            <option value="$PROJECT_DIR$/viewPagerIndicator_Demo" />
             <option value="$PROJECT_DIR$/xrecyclerview" />
           </set>
         </option>
@@ -19,7 +20,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/common_list_adapter" />
             <option value="$PROJECT_DIR$/projectframe" />
-            <option value="$PROJECT_DIR$/sample" />
+            <option value="$PROJECT_DIR$/recycleviewdemo" />
+            <option value="$PROJECT_DIR$/viewPagerIndicator_Demo" />
             <option value="$PROJECT_DIR$/xrecyclerview" />
           </set>
         </option>

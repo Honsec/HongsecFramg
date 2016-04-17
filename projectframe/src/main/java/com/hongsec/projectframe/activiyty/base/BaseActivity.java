@@ -6,6 +6,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.hongsec.projectframe.bus.BusBuilder;
+import com.hongsec.projectframe.bus.BusTool;
+
+import de.greenrobot.event.EventBus;
+
 /**
  * Created by Hongsec on 2016-04-14.
  */
@@ -21,6 +26,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(setContentLayoutResID());
+
+
+        //이벤트 버스 등록
+        try {
+            if(!EventBus.getDefault().isRegistered(this))
+                EventBus.getDefault().register(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
         preInit();
         initViews();
@@ -98,11 +113,69 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
 
+    protected  void Bus_onEvent(BusBuilder myBus){};
+    protected  void Bus_onEventMainThread(BusBuilder myBus){};
+    protected  void Bus_onEventBackgroundThread(BusBuilder myBus){};
+    protected  void Bus_onEventAsync(BusBuilder myBus){};
+
+    /**
+     * 자식에서 쓸필요 없음
+     * @param myBus
+     */
+    public void onEvent(BusBuilder myBus){
+        if(BusTool.onEventBusFilter(myBus, BusBuilder.BUSTYPE.onEvent,this.getClass().getSimpleName())){
+            return ;
+        }
+        Bus_onEvent(myBus);
+    };
+
+    /**
+     * 자식에서 쓸필요 없음
+     * @param myBus
+     */
+    public void onEventMainThread(BusBuilder myBus){
+        if(BusTool.onEventBusFilter(myBus, BusBuilder.BUSTYPE.onEventMainThread,this.getClass().getSimpleName())){
+            return ;
+        }
+        Bus_onEventMainThread(myBus);
+    };
+
+    /**
+     * 자식에서 쓸필요 없음
+     * @param myBus
+     */
+    public void onEventBackgroundThread(BusBuilder myBus){
+        if(BusTool.onEventBusFilter(myBus, BusBuilder.BUSTYPE.onEventBackgroundThread,this.getClass().getSimpleName())){
+            return ;
+        }
+        Bus_onEventBackgroundThread(myBus);
+    };
+
+    /**
+     * 자식에서 쓸필요 없음
+     * @param myBus
+     */
+    public void onEventAsync(BusBuilder myBus){
+        if(BusTool.onEventBusFilter(myBus, BusBuilder.BUSTYPE.onEventAsync,this.getClass().getSimpleName())){
+            return ;
+        }
+        Bus_onEventAsync(myBus);
+    };
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
 
         loaded =false;
+
+        try {
+            //이벤트 버스 해제
+            if (EventBus.getDefault().isRegistered(this)) {
+                EventBus.getDefault().unregister(this);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

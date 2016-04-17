@@ -10,7 +10,7 @@ import com.hongsec.projectframe.db.base.BaseDB;
  */
 public class DB_APP extends BaseDB {
 
-    private final String TABLE_APP="table_app";
+    private static final String TABLE_APP="table_app";
 
 
     private static class Column_APP{

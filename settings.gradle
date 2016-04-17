@@ -1,1 +1,1 @@
-include ':sample', ':common_list_adapter', ':xrecyclerview', ':projectframe'
+include ':recycleviewdemo', ':common_list_adapter', ':xrecyclerview', ':projectframe', ':viewPagerIndicator_Demo'
