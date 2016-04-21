@@ -44,14 +44,14 @@ public abstract class BaseDB {
     }
 
 
-    public Cursor getAllValues(String tableName) {
+    protected Cursor getAllValues(String tableName) {
         if (mWritableDatabase != null)
             return mWritableDatabase.query(tableName, null, null, null, null, null, null);
         return null;
     }
 
 
-    public boolean isExistRows(String TABLE_NAME) {
+    protected boolean isExistRows(String TABLE_NAME) {
         boolean result = false;
         Cursor fetchAllValues = getAllValues(TABLE_NAME);
         if (fetchAllValues != null) {
@@ -65,7 +65,7 @@ public abstract class BaseDB {
     }
 
 
-    public boolean deleteAll(String tablename) {
+    protected boolean deleteAll(String tablename) {
 
         int id = -1;
         if (mWritableDatabase != null) {
@@ -80,7 +80,7 @@ public abstract class BaseDB {
     }
 
 
-    public boolean update(String tableName, ContentValues contentValues) {
+    protected boolean update(String tableName, ContentValues contentValues) {
 
         long id = -1;
 
@@ -100,7 +100,7 @@ public abstract class BaseDB {
 
     }
 
-    public void insert(String tableName, ContentValues contentValues) {
+    protected void insert(String tableName, ContentValues contentValues) {
         if (mWritableDatabase != null) {
             mWritableDatabase.insert(tableName, null, contentValues);
         }

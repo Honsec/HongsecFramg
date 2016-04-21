@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#9f000000"
+        android:textSize="19sp"
+        android:text="@string/customactivityoncrash_unexpected_error_occurred"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Restart App"
+            android:padding="8dp"
+            android:gravity="center"
+            android:layout_margin="16dp"
+            android:textSize="14sp"
+            android:onClick="restartapp"
+            android:textColor="@android:color/black"
+            />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Close APp"
+            android:padding="8dp"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:onClick="closeapp"
+            android:textColor="@android:color/black"
+            />
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/act_crash_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SHOW ERROR DETAILS"
+        android:visibility="gone"
+        android:onClick="show_error"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+
+</LinearLayout>

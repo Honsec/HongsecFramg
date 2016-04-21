@@ -25,10 +25,10 @@ public abstract class  CommonAdapter<T> extends RecyclerView.Adapter<CommonViewH
 
     protected LayoutInflater mInflater;
 
-    private OnItemClickListener mOnItemClickListener;
+    private OnItemClickListener<T> mOnItemClickListener;
 
 
-    public void setOnItemClickListener(OnItemClickListener mOnItemClickListener) {
+    public void setOnItemClickListener(OnItemClickListener<T> mOnItemClickListener) {
         this.mOnItemClickListener = mOnItemClickListener;
     }
 

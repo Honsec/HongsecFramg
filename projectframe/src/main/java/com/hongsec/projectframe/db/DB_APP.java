@@ -1,5 +1,6 @@
 package com.hongsec.projectframe.db;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -11,6 +12,8 @@ import com.hongsec.projectframe.db.base.BaseDB;
 public class DB_APP extends BaseDB {
 
     private static final String TABLE_APP="table_app";
+
+
 
 
     private static class Column_APP{
@@ -57,6 +60,16 @@ public class DB_APP extends BaseDB {
         return strings;
     }
 
+
+    public void InsertError(String msg){
+
+        mWritableDatabase.beginTransaction();
+        ContentValues contentValues =new ContentValues();
+        contentValues.put(Column_APP.ERROR_STR,msg);
+        mWritableDatabase.insert(TABLE_APP,null,contentValues);
+        mWritableDatabase.endTransaction();
+
+    }
 
 
 }

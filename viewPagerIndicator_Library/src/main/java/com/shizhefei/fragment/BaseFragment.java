@@ -1,13 +1,13 @@
 package com.shizhefei.fragment;
 
-import java.lang.reflect.Field;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.lang.reflect.Field;
 
 public class BaseFragment extends Fragment {
 	protected LayoutInflater inflater;

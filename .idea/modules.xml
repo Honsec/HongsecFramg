@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/common_list_adapter/common_list_adapter.iml" filepath="$PROJECT_DIR$/common_list_adapter/common_list_adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/common_list_adapter/lib.iml" filepath="$PROJECT_DIR$/common_list_adapter/lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/projectframe/projectframe.iml" filepath="$PROJECT_DIR$/projectframe/projectframe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recycleviewdemo/recycleviewdemo.iml" filepath="$PROJECT_DIR$/recycleviewdemo/recycleviewdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/recycleviewdemo/sample.iml" filepath="$PROJECT_DIR$/recycleviewdemo/sample.iml" />
       <module fileurl="file://$PROJECT_DIR$/viewPagerIndicator_Demo/viewPagerIndicator_Demo.iml" filepath="$PROJECT_DIR$/viewPagerIndicator_Demo/viewPagerIndicator_Demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/xrecyclerview/xrecyclerview.iml" filepath="$PROJECT_DIR$/xrecyclerview/xrecyclerview.iml" />
