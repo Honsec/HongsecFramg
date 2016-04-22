@@ -2,12 +2,15 @@ package com.hongsec.projectframe.activiyty.base;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.hongsec.projectframe.bus.BusBuilder;
 import com.hongsec.projectframe.bus.BusTool;
+import com.hongsec.projectframe.utils.ActivityManagerUtils;
 
 import de.greenrobot.event.EventBus;
 
@@ -15,6 +18,9 @@ import de.greenrobot.event.EventBus;
  * Created by Hongsec on 2016-04-14.
  */
 public abstract class BaseActivity extends AppCompatActivity {
+
+    protected Handler mHandler = new Handler(Looper.getMainLooper());
+
 
     /**
      * 앱티비티가 로드 완료되였는지 표기하는 필더 onWindowFocusChanged 참고
@@ -38,7 +44,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        //activity관리를 위해 register 하여 저장
+        ActivityManagerUtils.getInstance().registerActivity(this, getClass().getSimpleName());
 
         preInit();
         initViews();
@@ -211,6 +218,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        //activity 관리자에서 제거
+        ActivityManagerUtils.getInstance().unregisterActivity(this, getClass().getName());
 
     }
 
